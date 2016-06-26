@@ -2,21 +2,14 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'R-exec'
+      'label': 'stata-exec'
       'submenu': [
-        { 'label': 'Send line/selection', 'command': 'r-exec:send-command'}
-        { 'label': 'Send function', 'command': 'r-exec:send-function'}
-        { 'label': 'Send paragraph', 'command': 'r-exec:send-paragraph'}
-        { 'label': 'Send knitr', 'command': 'r-exec:send-knitr'}
-        { 'label': 'Change working directory', 'command': 'r-exec:setwd'}
+        { 'label': 'Send line/selection', 'command': 'stata-exec:send-lines'}
+        { 'label': 'Send function', 'command': 'stata-exec:send-dofile'}
         'label': 'Change app'
         'submenu': [
-          { 'label': 'Chrome', 'command': 'r-exec:set-chrome'}
-          { 'label': 'iTerm', 'command': 'r-exec:set-iterm'}
-          { 'label': 'iTerm2', 'command': 'r-exec:set-iterm2'}
-          { 'label': 'R.app', 'command': 'r-exec:set-rapp'}
-          { 'label': 'Safari', 'command': 'r-exec:set-safari'}
-          { 'label': 'Terminal', 'command': 'r-exec:set-terminal'}
+          { 'label': 'StataMP', 'command': 'stata-exec:set-statamp'}
+          { 'label': 'Stata', 'command': 'stata-exec:set-stata'}
         ]
       ]
     ]
