@@ -1,27 +1,17 @@
 {
-  "name": "r-exec",
-  "main": "./lib/r-exec",
+  "name": "stata-exec",
+  "main": "./lib/stata-exec",
   "version": "0.3.5",
-  "description": "Send R code to various R consoles",
+  "description": "Send Stata code to various Stata consoles",
   "activationCommands": {
     "atom-text-editor": [
-      "r-exec:send-command",
-      "r-exec:send-function",
-      "r-exec:send-paragraph",
-      "r-exec:send-knitr",
-      "r-exec:setwd",
-      "r-exec:set-chrome",
-      "r-exec:set-iterm",
-      "r-exec:set-iterm2",
-      "r-exec:set-rapp",
-      "r-exec:set-safari",
-      "r-exec:set-terminal"
+      "stata-exec:send-lines",
+      "stata-exec:send-dofile"
     ]
   },
-  "repository": "https://github.com/pimentel/atom-r-exec",
+  "repository": "https://github.com/nickeubank/atom-stata-exec",
   "keywords": [
-    "R",
-    "rstats",
+    "stata",
     "code",
     "run",
     "runner"

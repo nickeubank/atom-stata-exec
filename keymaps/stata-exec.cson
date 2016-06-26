@@ -12,9 +12,5 @@
 # and have custom command palette to choose application
 # https://discuss.atom.io/t/custom-use-of-the-command-palette/15702/2
 'atom-text-editor':
-  'shift-cmd-e': 'r-exec:setwd'
-  'cmd-enter': 'r-exec:send-command'
-  'shift-cmd-u': 'r-exec:send-function'
-  'shift-cmd-k': 'r-exec:send-knitr'
-  'shift-cmd-m': 'r-exec:send-paragraph'
-  # shift-cmd y, u, i, j, k, x, m
+  'cmd-enter': 'stata-exec:send-lines'
+  'cmd-shift-enter': 'stata-exec:send-dofile'
