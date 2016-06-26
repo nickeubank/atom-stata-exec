@@ -12,5 +12,4 @@
 # and have custom command palette to choose application
 # https://discuss.atom.io/t/custom-use-of-the-command-palette/15702/2
 'atom-text-editor':
-  'cmd-alt-k': 'stata-exec:send-lines'
-  'cmd-shift-0': 'stata-exec:send-dofile'
+  'cmd-alt-0': 'stata-exec:run-dofile'
