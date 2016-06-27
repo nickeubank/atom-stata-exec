@@ -4,8 +4,9 @@
     'submenu': [
       'label': 'stata-exec'
       'submenu': [
-        { 'label': 'Run Dofiles', 'command': 'stata-exec:run-dofile'}
-        'label': 'Change app'
+           {
+           'label': 'Run Dofiles', 'command': 'stata-exec:run-dofile'
+           }
       ]
     ]
   }

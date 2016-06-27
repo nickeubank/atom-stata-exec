@@ -7,13 +7,8 @@ module.exports =
   config:
     whichApp:
       type: 'string'
-      default: 'Stata 13.1'
+      default: 'Stata'
       description: 'Which application to send code to'
-    advancePosition:
-      type: 'boolean'
-      default: false
-      description: 'Cursor advances to the next line after ' +
-        'sending the current line when there is no selection'
     focusWindow:
       type: 'boolean'
       default: true
@@ -30,32 +25,31 @@ module.exports =
 
     @subscriptions.add atom.commands.add 'atom-workspace',
       'stata-exec:run-dofile', => @runDofile()
+    console.log('openned state exec!')
 
   deactivate: ->
     @subscriptions.dispose()
 
-  _getEditorAndBuffer: ->
-    editor = atom.workspace.getActiveTextEditor()
-    buffer = editor.getBuffer()
-    return [editor, buffer]
-
   runDofile: ->
-    window.beep()
+    editor = atom.workspace.getActiveTextEditor()
+    whichApp = atom.config.get 'stata-exec.whichApp'
+    console.log('in runDofile!')
     osascript = require 'node-osascript'
     command = []
     focusWindow = atom.config.get 'stata-exec.focusWindow'
-    documentTitle = getPath()+getTitle()
-    dofileCommand ='tell application "Stata 13.1" to open ' + documentTitle
-    window.beep()
-    window.alert(dofileCommand)
+    documentTitle = editor.getPath()
+    console.log(documentTitle)
+
+    dofileCommand = 'tell application "' + whichApp + '" to open "' + documentTitle + '"'
+    activateCommand = 'tell application "' + whichApp + '" to activate'
+
     if focusWindow
-      command.push 'tell application "Stata 13.1" to activate'
+      command.push activateCommand
     command.push dofileCommand
     command = command.join('\n')
+    console.log(command)
 
-    osascript.execute command, {code: selection},
-      (error, result, raw) ->
+    osascript.execute command, (error, raw) ->
         if error
           console.error error
-          console.error 'code: ', selection
           console.error 'Applescript: ', command
